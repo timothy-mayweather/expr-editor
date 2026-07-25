@@ -1,15 +1,22 @@
 {
-  "name": "expr-editor",
+  "name": "@timothy-mayweather/expr-editor",
   "version": "2.0.0",
   "description": "A WebAssembly-powered real-time linter and autocomplete code editor for antonmedv/expr",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothy-mayweather/expr-editor.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "generate:parser": "lezer-generator src/lib/expr.grammar -o src/lib/expr.js",
     "check": "svelte-check --tsconfig",
     "prepackage": "npm run generate:parser",
     "package": "svelte-package",
     "test": "vitest run",
-    "deploy": "npm run package && cd dist && git init && git add . && git commit -m 'Deploy build' && git remote add origin git@github.com:timothy-mayweather/expr-editor.git && git push -f origin HEAD:release"
-
+    "prepublishOnly": "npm run package"
   },
   "files": [
     "dist",
@@ -21,7 +28,6 @@
   ],
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -38,12 +44,17 @@
     "@codemirror/lint": "^6",
     "@codemirror/state": "^6",
     "@codemirror/view": "^6",
-    "svelte-codemirror-editor": "^2.1.0",
-    "svelte": "^5.0.0"
+    "svelte": "^5.0.0",
+    "svelte-codemirror-editor": "^2.1.0"
+  },
+  "dependencies": {
+    "@lezer/highlight": "^1.2.3",
+    "@lezer/lr": "^1.4.10"
   },
   "devDependencies": {
     "@lezer/generator": "^1.8.0",
     "@sveltejs/kit": "^2.63.0",
+    "@sveltejs/package": "^2.5.8",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@types/node": "^24",
     "@vitest/browser-playwright": "^4.1.8",
@@ -52,6 +63,7 @@
     "publint": "^0.3.21",
     "svelte": "^5.56.1",
     "svelte-check": "^4.6.0",
+    "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.8",
     "vitest-browser-svelte": "^2.1.1"
@@ -63,11 +75,5 @@
     "editor",
     "wasm",
     "golang"
-  ],
-  "dependencies": {
-    "@sveltejs/package": "^2.5.8",
-    "typescript": "^6.0.3",
-    "@lezer/highlight": "^1.2.3",
-    "@lezer/lr": "^1.4.10"
-  }
+  ]
 }
