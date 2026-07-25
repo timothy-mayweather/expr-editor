@@ -42,7 +42,6 @@
   "devDependencies": {
     "@lezer/generator": "^1.8.0",
     "@sveltejs/kit": "^2.63.0",
-    "@sveltejs/package": "^2.5.8",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@types/node": "^24",
     "@vitest/browser-playwright": "^4.1.8",
@@ -51,7 +50,6 @@
     "publint": "^0.3.21",
     "svelte": "^5.56.1",
     "svelte-check": "^4.6.0",
-    "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.8",
     "vitest-browser-svelte": "^2.1.1"
@@ -65,6 +63,8 @@
     "golang"
   ],
   "dependencies": {
+    "@sveltejs/package": "^2.5.8",
+    "typescript": "^6.0.3",
     "@lezer/highlight": "^1.2.3",
     "@lezer/lr": "^1.4.10"
   }
