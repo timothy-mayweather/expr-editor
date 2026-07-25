@@ -7,7 +7,8 @@
     "check": "svelte-check --tsconfig",
     "prepackage": "npm run generate:parser",
     "package": "svelte-package",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "npm run package"
   },
   "files": [
     "dist",
