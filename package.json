@@ -8,7 +8,8 @@
     "prepackage": "npm run generate:parser",
     "package": "svelte-package",
     "test": "vitest run",
-    "prepare": "npm run package"
+    "deploy": "npm run package && cd dist && git init && git add . && git commit -m 'Deploy build' && git remote add origin git@github.com:timothy-mayweather/expr-editor.git && git push -f origin HEAD:release"
+
   },
   "files": [
     "dist",
