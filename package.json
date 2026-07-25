@@ -24,7 +24,9 @@
     "LICENSE"
   ],
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "./dist/wasm_exec.js",
+    "**/wasm_exec.js"
   ],
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
